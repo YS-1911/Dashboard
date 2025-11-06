@@ -1,6 +1,6 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import { SectionCards } from "@/components/section-cards"
-import { SiteHeader } from "@/components/site-header"
+import { AppSidebar } from "@/components/sidebar/app-sidebar"
+import { SectionCards } from "@/components/dashboardPage/section-cards"
+import { SiteHeader } from "@/components/sidebar/site-header"
 import {
     SidebarInset,
     SidebarProvider,

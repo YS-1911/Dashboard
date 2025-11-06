@@ -1,11 +1,11 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import { SectionCards } from "@/components/section-cards"
-import { SiteHeader } from "@/components/site-header"
+import { AppSidebar } from "@/components/sidebar/app-sidebar"
+import { SectionCards } from "@/components/dashboardPage/section-cards"
+import { SiteHeader } from "@/components/sidebar/site-header"
 import {
     SidebarInset,
     SidebarProvider,
 } from "@/components/ui/sidebar"
-import { ChartAreaInteractive } from "@/components/chart-area-interactive"
+import { ChartAreaInteractive } from "@/components/dashboardPage/chart-area-interactive"
 export default function Page() {
     return (
         <SidebarProvider

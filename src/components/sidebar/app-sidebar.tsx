@@ -12,9 +12,9 @@ IconTruckDelivery,
 } from "@tabler/icons-react"
 
 import { SidebarFooter } from "@/components/ui/sidebar"
-import { NavUser } from "@/components/nav-user"
+import { NavUser } from "@/components/sidebar/nav-user"
 
-import { NavMain } from "@/components/nav-main"
+import { NavMain } from "@/components/sidebar/nav-main"
 
 
 import {
@@ -35,7 +35,7 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {

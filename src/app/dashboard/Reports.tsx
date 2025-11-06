@@ -1,6 +1,6 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/sidebar/app-sidebar"
 
-import { SiteHeader } from "@/components/site-header"
+import { SiteHeader } from "@/components/sidebar/site-header"
 import {
     SidebarInset,
     SidebarProvider,
@@ -10,7 +10,7 @@ import {
 const Reports = () => {
     return (
         <div>
-                        <SidebarProvider
+            <SidebarProvider
                 style={
                     {
                         "--sidebar-width": "calc(var(--spacing) * 72)",

@@ -1,4 +1,4 @@
-"use client"
+
 
 import * as React from "react"
 import {
@@ -39,41 +39,117 @@ import {
 const data: Payment[] = [
     {
         id: "m5gr84i9",
-        amount: 316,
-        status: "success",
-        email: "ken99@example.com",
+        price: 316,
+        status: "active",
+        productName: "produst 1",
+        productImage : "/assets/images.jpeg",
     },
     {
         id: "3u1reuv4",
-        amount: 242,
-        status: "success",
-        email: "Abe45@example.com",
+        price: 242,
+        status: "active",
+        productName: "produst 2",
+        productImage : "/assets/images.jpeg",
     },
     {
         id: "derv1ws0",
-        amount: 837,
-        status: "processing",
-        email: "Monserrat44@example.com",
+        price: 837,
+        status: "active",
+        productName: "produst 3",
+        productImage : "/assets/images.jpeg",
     },
     {
         id: "5kma53ae",
-        amount: 874,
-        status: "success",
-        email: "Silas22@example.com",
+        price: 874,
+        status: "active",
+        productName: " produst 4",
+        productImage : "/assets/images.jpeg",
     },
     {
         id: "bhqecj4p",
-        amount: 721,
-        status: "failed",
-        email: "carmella@example.com",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
+    },
+    {
+        id: "bhqecj4p",
+        price: 721,
+        status: "not-active",
+        productName: " produst 5",
+        productImage : "/assets/images.jpeg",
     },
 ]
 
 export type Payment = {
     id: string
-    amount: number
-    status: "pending" | "processing" | "success" | "failed"
-    email: string
+    price: number
+    status: "active" | "not-active"   
+    productName: string
+    productImage: string
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -108,11 +184,12 @@ export const columns :  ColumnDef<Payment >[] = [
         ),
     },
     {
-        accessorKey: "email",
+        accessorKey: "productName",
         header: ({ column }) => {
             return (
                 <Button
                     variant="ghost"
+                    className="cursor-pointer"
                     onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
                 >
                     Product name
@@ -120,19 +197,29 @@ export const columns :  ColumnDef<Payment >[] = [
                 </Button>
             )
         },
-        cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+        cell: ({ row }) => <div className="lowercase text-start">{row.getValue("productName")}</div>,
     },
     {
-        accessorKey: "amount",
-        header: () => <div className="text-right cursor-pointer">Price</div>,
+        accessorKey: "productImage",
+        header: () => <div className="text-start">Image</div>,
         cell: ({ row }) => {
-            const amount = parseFloat(row.getValue("amount"))
+            const formatted = String(row.getValue("productImage"))
+            // Ensure the product image value is a string before using it as src
+            
+            return <img className="h-10  w-10 rounded-sm" src={formatted} alt="" />
+        },
+    },
+    {
+        accessorKey: "price",
+        header: () => <div className="text-right ">Price</div>,
+        cell: ({ row }) => {
+            const price = parseFloat(row.getValue("price"))
 
-            // Format the amount as a dollar amount
+            // Format the price as a dollar price
             const formatted = new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: "USD",
-            }).format(amount)
+            }).format(price)
 
             return <div className="text-right font-medium">{formatted}</div>
         },
@@ -200,10 +287,10 @@ export function DataTableDemo() {
         <div className="w-full">
             <div className="flex items-center py-4">
                 <Input
-                    placeholder="Filter emails..."
-                    value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+                    placeholder="Filter name..."
+                    value={(table.getColumn("productName")?.getFilterValue() as string) ?? ""}
                     onChange={(event) =>
-                        table.getColumn("email")?.setFilterValue(event.target.value)
+                        table.getColumn("productName")?.setFilterValue(event.target.value)
                     }
                     className="max-w-sm"
                 />
@@ -294,15 +381,15 @@ export function DataTableDemo() {
                         variant="outline"
                         size="sm"
                         onClick={() => table.previousPage()}
-                        disabled={!table.getCanPreviousPage()}
+                        className="cursor-pointer"
                     >
                         Previous
                     </Button>
                     <Button
                         variant="outline"
                         size="sm"
+                        className="cursor-pointer"
                         onClick={() => table.nextPage()}
-                        disabled={!table.getCanNextPage()}
                     >
                         Next
                     </Button>
