@@ -6,6 +6,7 @@ import {
     SidebarProvider,
 } from "@/components/ui/sidebar"
 
+import { DataTableCategory } from "@/components/Categories/DataTableCategory"
 
 const Categories = () => {
     return (
@@ -25,8 +26,9 @@ const Categories = () => {
                         <div className="@container/main flex flex-1 flex-col gap-2">
                             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
                                 <SectionCards />
-
-
+                            </div>
+                            <div className="px-10 ">
+                                <DataTableCategory />
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,8 @@ import {
     SidebarProvider,
 } from "@/components/ui/sidebar"
 import { ChartAreaInteractive } from "@/components/dashboardPage/chart-area-interactive"
+import { ChartPieInteractive } from "@/components/dashboardPage/chart-pie-interactive"
+import { ChartBarHorizontal } from "@/components/dashboardPage/chart-bar-horizontal"
 export default function Page() {
     return (
         <SidebarProvider
@@ -26,8 +28,11 @@ export default function Page() {
                             <div className="px-4 lg:px-6">
                                 <ChartAreaInteractive />
                             </div>
-
-                        </div>
+                            <div className="grid grid-cols-1 gap-4 px-4 lg:grid-cols-2 lg:gap-6 lg:px-6">
+                            <ChartPieInteractive />
+                            <ChartBarHorizontal />
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </SidebarInset>

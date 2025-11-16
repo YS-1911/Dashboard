@@ -28,7 +28,7 @@ export function LoginForm({
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
 
-        // حدد القيم اللي تعتبرها صحيحة
+        // 
         const correctEmail = "y@gmail.com"
         const correctPassword = "123"
 
@@ -78,7 +78,7 @@ export function LoginForm({
                                 <p className="text-red-500 text-sm">{error}</p>
                             )}
                             <Field>
-                                <Button type="submit">Login</Button>
+                                <Button type="submit" className="cursor-pointer">Login</Button>
                             </Field>
                         </FieldGroup>
                     </form>

@@ -3,16 +3,16 @@ import {
 IconTruckDelivery,
   IconDashboard,
   IconCategory2,
-  IconInnerShadowTop,
   IconStarFilled,
   IconSettings,
   IconUsers,
   IconBuildingStore,
   IconReportAnalytics,
+  IconLogout2
 } from "@tabler/icons-react"
 
 import { SidebarFooter } from "@/components/ui/sidebar"
-import { NavUser } from "@/components/sidebar/nav-user"
+
 
 import { NavMain } from "@/components/sidebar/nav-main"
 
@@ -69,20 +69,20 @@ const data = {
       icon: IconReportAnalytics,
     },
 
+    
+  ],
+  navSecondary: [
     {
       title: "settings",
       url: "/settings",
       icon: IconSettings,
     },
-  ],
-  navSecondary: [
     {
-      title: "Settings",
-      url: "#",
-      icon: IconSettings,
-    }
+      title: "Logout",
+      url: "/",
+      icon: IconLogout2,
+    },
   ],
-
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -96,8 +96,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
               <h1>
-                <IconInnerShadowTop className="size-5!" />
-                <span className="text-base font-semibold ">YS</span>
+                <img src="/assets/logo.jpeg" className="w-5 h-5 rounded-full" alt="" />
+                <span className=" font-semibold text-xl text-primary ">YS</span>
               </h1>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -107,7 +107,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter >
-        <NavUser user={{ name: "youssef", email: "m@example.com", avatar: "/default-avatar.png" }} />
+        <NavMain items={data.navSecondary} />
       </SidebarFooter>
     </Sidebar>
   )
